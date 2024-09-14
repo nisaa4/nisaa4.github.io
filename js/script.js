@@ -24,33 +24,13 @@ window.addEventListener("scroll", function () {
   });
 });
 
-// Fungsi ketika di klik maka akan ke aboutme tanpa url #aboutme
+// Fungsi ketika di klik maka akan ke aboutme tanpa url #aboutme : view portfolio
 document.addEventListener("DOMContentLoaded", function () {
   const viewaboutme = document.getElementById("viewToAboutMe");
 
   viewaboutme.addEventListener("click", function (event) {
     event.preventDefault(); // Mencegah perubahan default dari link
     document.querySelector("#aboutme").scrollIntoView({ behavior: "smooth" }); // Gulir halus ke elemen dengan ID 'aboutme'
-  });
-});
-
-// Bagian untuk garis 3 js
-// deklarasi tombol dan menu
-document.addEventListener("DOMContentLoaded", () => {
-  const tombol = document.querySelector(".tombol");
-  const menu = document.querySelector(".navbar");
-  const menuItems = document.querySelectorAll(".navbar a"); // Ambil semua item menu
-
-  // Toggle navbar aktif saat tombol diklik
-  tombol.addEventListener("click", () => {
-    menu.classList.toggle("active");
-  });
-
-  // Tutup navbar saat item menu diklik
-  menuItems.forEach((item) => {
-    item.addEventListener("click", () => {
-      menu.classList.remove("active");
-    });
   });
 });
 
@@ -73,7 +53,7 @@ navlinks.forEach((link) => {
 const sr = ScrollReveal({
   distance: "40px",
   duration: 2500,
-  reset: false, //kalau true dia akan hilang ketika di scroll, false dia ga hilang
+  reset: false,
 });
 
 // transisi dari kiri ke kanan logo
@@ -85,8 +65,6 @@ sr.reveal(".navbar", { delay: 400, origin: "top" });
 sr.reveal(".home-text span", { delay: 600, origin: "top" });
 sr.reveal(".home-text h1", { delay: 680, origin: "left" });
 sr.reveal(".home-text p", { delay: 750, origin: "right" });
-//main-btn transition
-// sr.reveal(".main-btn", { delay: 860, origin: "left" });
 
 sr.reveal(".home-img", { delay: 1000, origin: "right" });
 
@@ -114,6 +92,15 @@ ScrollReveal().reveal(".about-item", {
   distance: "50px",
   easing: "ease-in-out",
   origin: "left",
+  interval: 100,
+});
+
+// Inisialisasi ScrollReveal bagian contact me
+ScrollReveal().reveal(".contact-container", {
+  delay: 200,
+  distance: "50px",
+  easing: "ease-in-out",
+  origin: "bottom",
   interval: 100,
 });
 
@@ -147,13 +134,4 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-});
-
-// Inisialisasi ScrollReveal bagian contact me
-ScrollReveal().reveal(".contact-container", {
-  delay: 200,
-  distance: "50px",
-  easing: "ease-in-out",
-  origin: "bottom",
-  interval: 100,
 });
