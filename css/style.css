@@ -48,6 +48,7 @@ header {
 
 .navbar {
   display: flex;
+  list-style: none; /* Pastikan tidak ada bullet points */
 }
 
 .navbar a {
@@ -56,6 +57,18 @@ header {
   color: var(--text-color); /* Warna text home, dll*/
   margin: 0 25px;
   transition: all ease 0.5s;
+}
+
+.navbar.active {
+  /* Tambahkan gaya untuk menampilkan menu */
+  display: flex; /* Tampilkan menu ketika aktif */
+  position: absolute;
+  width: 100%;
+  background: #2d2d2d;
+  height: calc(80vh - 65px); /* Menyesuaikan tinggi untuk perangkat kecil */
+  flex-direction: column; /* Menata item vertikal */
+  padding: 20px;
+  transition: left 0.2s ease-in-out;
 }
 
 .navbar a:hover {
@@ -97,7 +110,6 @@ section {
   height: 75%;
   object-fit: contain;
   border-radius: 50%;
-  /* margin: 40px 40px; */
   margin: 0px auto;
   box-shadow: 10px 9px 10px 5px rgba(209, 209, 209, 1);
   -webkit-box-shadow: 10px 9px 10px 5px rgba(209, 209, 209, 1);
@@ -170,6 +182,9 @@ section {
     padding: 0 8%;
     transition: 0.2s;
   }
+  .tombol {
+    display: none;
+  }
 }
 
 @media (max-width: 1370px) {
@@ -186,16 +201,11 @@ section {
     --p-font: 1rem;
     transition: 0.2s;
   }
-}
-
-@media (max-width: 1020px) {
   .navbar a {
     margin: 0 15px;
   }
-  :root {
-    --big-font: 3.5rem;
-    --p-font: 1rem;
-    transition: 0.2s;
+  .tombol {
+    display: none;
   }
 }
 
@@ -225,6 +235,12 @@ section {
     width: 100%;
     height: auto;
   }
+  .tombol {
+    display: none;
+  }
+  .navbar.active {
+    display: none;
+  }
 }
 
 @media (max-width: 850px) {
@@ -252,6 +268,9 @@ section {
   }
   .navbar.open {
     left: 0;
+  }
+  .tombol {
+    display: block;
   }
 }
 
@@ -386,10 +405,31 @@ section {
   margin: 10px;
 }
 
-/* Media Query for Responsive Design */
+/* Media Query for Responsive Design skill ada juga about */
 @media (max-width: 768px) {
   .skill-categories {
     grid-template-columns: 1fr;
+  }
+  .about-item {
+    margin: 0 20%;
+  }
+  .tombol:hover {
+    cursor: pointer; //agar bisa muncul seperti tangan
+  }
+
+  .navbar.active {
+    display: block;
+    position: absolute;
+    top: 64px;
+    background: #212121;
+    padding: 10px 20px;
+    right: 0;
+    left: 0;
+  }
+
+  .navbar.active li a {
+    padding: 10px;
+    display: block;
   }
 }
 

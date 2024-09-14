@@ -24,7 +24,37 @@ window.addEventListener("scroll", function () {
   });
 });
 
-// // Fungsi untuk smooth scroll saat menu navigasi diklik - Event listener
+// Fungsi ketika di klik maka akan ke aboutme tanpa url #aboutme
+document.addEventListener("DOMContentLoaded", function () {
+  const viewaboutme = document.getElementById("viewToAboutMe");
+
+  viewaboutme.addEventListener("click", function (event) {
+    event.preventDefault(); // Mencegah perubahan default dari link
+    document.querySelector("#aboutme").scrollIntoView({ behavior: "smooth" }); // Gulir halus ke elemen dengan ID 'aboutme'
+  });
+});
+
+// Bagian untuk garis 3 js
+// deklarasi tombol dan menu
+document.addEventListener("DOMContentLoaded", () => {
+  const tombol = document.querySelector(".tombol");
+  const menu = document.querySelector(".navbar");
+  const menuItems = document.querySelectorAll(".navbar a"); // Ambil semua item menu
+
+  // Toggle navbar aktif saat tombol diklik
+  tombol.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
+
+  // Tutup navbar saat item menu diklik
+  menuItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      menu.classList.remove("active");
+    });
+  });
+});
+
+// Fungsi untuk smooth scroll saat menu navigasi diklik - Event listener
 navlinks.forEach((link) => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
